@@ -1,0 +1,21 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  train-test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Download data and train
+        run: python scripts/download_data.py && python -m model.train
+      - name: Quality gate - hold-out ROC-AUC must stay above 0.80
+        run: python -c "import json; m=json.load(open('model/artifacts/model_card.json')); auc=m['holdout']['roc_auc']; print('AUC', auc); assert auc > 0.80"
+      - name: API tests
+        run: pytest -q
+      - name: Drift simulation
+        run: python scripts/simulate_traffic.py
+      - name: Build Docker image
+        run: docker build -t churn-model-api .

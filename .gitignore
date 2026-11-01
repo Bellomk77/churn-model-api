@@ -1,0 +1,5 @@
+data/
+model/artifacts/model.joblib
+__pycache__/
+.pytest_cache/
+.venv/

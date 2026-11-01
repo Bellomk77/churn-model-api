@@ -1,0 +1,5 @@
+data/
+.git/
+__pycache__/
+.pytest_cache/
+model/artifacts/model.joblib
