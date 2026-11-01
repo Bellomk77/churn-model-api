@@ -1,0 +1,59 @@
+{
+  "model_version": "2026.11.01",
+  "trained_at": "2026-11-01T00:58:14+00:00",
+  "data": {
+    "source": "IBM Telco Customer Churn sample (Apache-2.0)",
+    "rows": 7043,
+    "churn_rate": 0.2654,
+    "sha256": "16320c9c1ec72448"
+  },
+  "features": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges",
+    "SeniorCitizen",
+    "gender",
+    "Partner",
+    "Dependents",
+    "PhoneService",
+    "MultipleLines",
+    "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod"
+  ],
+  "cv_roc_auc": {
+    "logistic_regression": {
+      "mean": 0.8461,
+      "std": 0.0124
+    },
+    "hist_gradient_boosting": {
+      "mean": 0.8439,
+      "std": 0.0093
+    },
+    "random_forest": {
+      "mean": 0.845,
+      "std": 0.0088
+    }
+  },
+  "chosen_model": "logistic_regression",
+  "choice_reason": "highest cross-validated ROC-AUC",
+  "holdout": {
+    "roc_auc": 0.8421,
+    "pr_auc": 0.6351,
+    "brier": 0.138,
+    "baseline_pr_auc": 0.2654,
+    "recall_at_top_20pct": 0.4973,
+    "precision_at_top_20pct": 0.6619
+  },
+  "risk_bands": {
+    "high": 0.536,
+    "medium": 0.1872
+  }
+}
