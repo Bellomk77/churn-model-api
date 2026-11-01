@@ -11,6 +11,8 @@ Trained on the **IBM Telco Customer Churn** dataset (7,043 real-world-style cust
 
 ![Cumulative gains](docs/gains_chart.png)
 
+**▶ [Live demo](https://mohammed-bello-ibrahim.vercel.app/demos/churn.html)**: score a customer in your browser with the same model the API serves, with reasons and retention levers.
+
 ---
 
 ## The business result
